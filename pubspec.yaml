@@ -1,0 +1,39 @@
+name: flutter_ris
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.3  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  assets:
+  - assets/instagram.png
+  fonts:
+    - family: IBMPlexMono
+      fonts:
+        - asset: fonts/IBMPlexMono-BoldItalic.ttf
+        - asset: fonts/IBMPlexMono-Bold.ttf
+        - asset: fonts/IBMPlexMono-ExtraLight.ttf
+        - asset: fonts/IBMPlexMono-Italic.ttf
+        - asset: fonts/IBMPlexMono-Light.ttf
+        - asset: fonts/IBMPlexMono-LightItalic.ttf
+        - asset: fonts/IBMPlexMono-Medium.ttf
+        - asset: fonts/IBMPlexMono-MediumItalic.ttf
+        - asset: fonts/IBMPlexMono-Regular.ttf
+        - asset: fonts/IBMPlexMono-SemiBold.ttf
+        - asset: fonts/IBMPlexMono-SemiBold.ttf
+        - asset: fonts/IBMPlexMono-SemiBoldItalic.ttf
+        - asset: fonts/IBMPlexMono-Thin.ttf
+        - asset: fonts/IBMPlexMono-ThinItalic.ttf
+uses-material-design: true
