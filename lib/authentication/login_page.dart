@@ -36,6 +36,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    AssetImage logo = const AssetImage('assets/logonn.png');
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
@@ -51,44 +52,45 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
       backgroundColor: const Color.fromARGB(255, 184, 183, 183),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'logonn.png',
-              height: 300,
-              width: 300,
-              color: Colors.transparent,
-            ),
-            Center(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                  InputField(
-                    labelText: 'Username',
-                    controller: usernameController,
-                  ),
-                  InputField(
-                    labelText: 'Password',
-                    obscureText: true,
-                    controller: passwordController,
-                  ),
-                  SizedBox(height: 20),
-                  SubmitButton(onPressed: login, labelText: 'Login'),
-                  SizedBox(height: 15),
-                  ChangeButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/register');
-                    }, 
-                    labelText: 'Create an account'
-                  )
-                ]
+      body:SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/logonn.png',
+                height: 300,
+                width: 300,
+              ),
+              Center(
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                    InputField(
+                      labelText: 'Username',
+                      controller: usernameController,
+                    ),
+                    InputField(
+                      labelText: 'Password',
+                      obscureText: true,
+                      controller: passwordController,
+                    ),
+                    SizedBox(height: 20),
+                    SubmitButton(onPressed: login, labelText: 'Login'),
+                    SizedBox(height: 15),
+                    ChangeButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/register');
+                      }, 
+                      labelText: 'Create an account'
+                    )
+                  ]
+                )
               )
-            )
-          ],
+            ],
+          ),
         ),
-      ),
+      )
     );
   }
 }

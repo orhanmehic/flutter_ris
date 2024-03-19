@@ -21,7 +21,7 @@ Future<bool> register(String username, String email, String password) async {
     );
 
     if (response.statusCode == 201) {
-      Map<String, dynamic> responseData = json.decode(response.body);
+      //Map<String, dynamic> responseData = json.decode(response.body);
       //bool registered = responseData['success'] ?? false;
       //return registered;
       return true; 

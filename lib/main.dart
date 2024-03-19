@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ris/authentication/login_page.dart';
 import 'package:flutter_ris/authentication/register_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferences.getInstance();
   runApp(MyApp());
 }
 
