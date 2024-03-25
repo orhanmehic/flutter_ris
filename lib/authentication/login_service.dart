@@ -5,9 +5,26 @@ import 'package:shared_preferences/shared_preferences.dart'; // HTTP client for 
 // Define the base URL of your API
 const String url = 'http://192.168.0.17:3003/api/user/authenticate';
 
+Future<void> saveUserData(int userId, String username) async {
+
+  // Get an instance of SharedPreferences
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  // Save the user JSON string to SharedPreferences
+  await prefs.setString('username', username);
+  await prefs.setInt('userId', userId);
+
+}
+
+// Function to clear user login preferences
+Future<void> clearUserPreferences() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.remove('username');
+  await prefs.remove('isLoggedIn');
+}
+
 // Define the login function
 Future<bool> login(String username, String password) async {
-
   try {
     // Make a POST request to the login endpoint
     final response = await http.post(
@@ -23,12 +40,18 @@ Future<bool> login(String username, String password) async {
 
     // Check if the request was successful (status code 200)
     if (response.statusCode == 201) {
-      await saveUserPreferences(username);
-      // Parse the response JSON
-      //Map<String, dynamic> responseData = json.decode(response.body);
+      print("loginovano");
+      print(response.body);
+      // Parse the response JSON and create a User object
+      Map<String, dynamic> responseData = json.decode(response.body);
 
-      // Check if the login was successful
-      //bool loggedIn = responseData['success'] ?? false;
+      int userId = responseData['id'] as int;
+      String username = responseData['username'] as String;
+
+      print('${userId}  ${username}');
+
+      // Save the user object to shared preferences
+      await saveUserData(userId, username);
 
       return true;
     } else {
@@ -40,17 +63,7 @@ Future<bool> login(String username, String password) async {
     print('Error during login: $e');
     return false; // Return false to indicate login failure
   }
+
 }
 
-Future<void> saveUserPreferences(String username) async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  await prefs.setString('username', username);
-  await prefs.setBool('isLoggedIn', true);
-}
 
-// Function to clear user login preferences
-Future<void> clearUserPreferences() async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  await prefs.remove('username');
-  await prefs.remove('isLoggedIn');
-}

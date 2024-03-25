@@ -22,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
 
     if (loggedIn) {
       _showSnackBar('Login successful');
+      Navigator.pushNamed(context, '/home');
     } else {
       _showSnackBar('Login failed. Please try again.');
     }
@@ -36,7 +37,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    AssetImage logo = const AssetImage('assets/logonn.png');
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
