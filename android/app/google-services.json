@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "673951335021",
+    "project_id": "photoland-d1476",
+    "storage_bucket": "photoland-d1476.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673951335021:android:b3fe684bbaf71ba1a67564",
+        "android_client_info": {
+          "package_name": "com.example.flutter_ris"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfLmAEaf-fDrjMXW6wgHb_-xtg73lm0FQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

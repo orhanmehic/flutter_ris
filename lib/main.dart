@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ris/authentication/login_page.dart';
 import 'package:flutter_ris/authentication/register_page.dart';
+import 'package:flutter_ris/firebase_options.dart';
 import 'package:flutter_ris/home/home_page.dart';
+import 'package:flutter_ris/home/new_post.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_core/firebase_core.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   SharedPreferences prefs = await SharedPreferences.getInstance();
   runApp(MyApp(prefs: prefs));
 }
@@ -23,6 +30,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/home': (context) => HomePage(),
         '/register': (context) => RegisterPage(),
+        '/newPost': (context) => NewPost()
       },
     );
   }

@@ -15,19 +15,19 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    // Call function to fetch posts when the widget is initialized
     fetchPosts();
   }
 
-  // Function to fetch posts from the API
   Future<void> fetchPosts() async {
     try {
-      final response = await http.get(Uri.parse('http://192.168.1.17:3003/api/posts'));
+      final response =
+          await http.get(Uri.parse('http://192.168.1.17:3003/api/posts'));
 
       if (response.statusCode == 201) {
         final List<dynamic> responseData = json.decode(response.body);
         setState(() {
-          posts = responseData.map((postJson) => Posts.fromJson(postJson)).toList();
+          posts =
+              responseData.map((postJson) => Posts.fromJson(postJson)).toList();
         });
       } else {
         throw Exception('Failed to fetch posts');
@@ -40,16 +40,27 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
-      body: ListView.builder(
-        itemCount: posts.length,
-        itemBuilder: (context, index) {
-          final post = posts[index];
-          return PostCard(post: post);
-        },
-      ),
-    );
+        appBar: AppBar(
+          title: Text('Home'),
+        ),
+        body: ListView.builder(
+          itemCount: posts.length,
+          itemBuilder: (context, index) {
+            final post = posts[index];
+            return PostCard(post: post);
+          },
+        ),
+        floatingActionButton: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/newPost');
+              },
+              child: const Icon(Icons.add),
+            ),
+          ],
+        ));
   }
 }
