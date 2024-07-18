@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart'; // HTTP client for making requests
 
 // Define the base URL of your API
-const String url = 'http://192.168.0.17:3003/api/user/authenticate';
+const String url = 'http://192.168.0.13:3003/api/user/authenticate';
 
 Future<void> saveUserData(int userId, String username) async {
 

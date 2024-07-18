@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ris/home/nav_bar.dart';
 import 'package:flutter_ris/home/post_card.dart';
 import 'package:flutter_ris/models/post.dart';
 import 'package:http/http.dart' as http;
@@ -10,7 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Posts> posts = []; // List to store posts
+  List<Posts> posts = [];
+  int _selectedIndex = 0; // List to store posts
 
   @override
   void initState() {
@@ -37,6 +39,22 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void _onItemTapped(int index) {
+    if (index == 0) {
+      Navigator.pushNamed(context, '/chats');
+    } else {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
+  }
+
+  /*static List<Widget> _widgetOptions = <Widget>[
+    UserListPage(), // Dummy widget to avoid null reference
+    SearchPage(),
+    ProfilePage(),
+  ];
+  */
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +78,13 @@ class _HomePageState extends State<HomePage> {
               },
               child: const Icon(Icons.add),
             ),
+            
           ],
-        ));
+        ),
+        bottomNavigationBar: NavBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
+      );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ris/authentication/login_page.dart';
 import 'package:flutter_ris/authentication/register_page.dart';
+import 'package:flutter_ris/chats/users_list.dart';
 import 'package:flutter_ris/firebase_options.dart';
 import 'package:flutter_ris/home/home_page.dart';
 import 'package:flutter_ris/home/new_post.dart';
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/home': (context) => HomePage(),
         '/register': (context) => RegisterPage(),
-        '/newPost': (context) => NewPost()
+        '/newPost': (context) => NewPost(),
+        '/chats': (context) => UserListPage(),
       },
     );
   }

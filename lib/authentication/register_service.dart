@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-const String url = 'http://192.168.0.17:3003/api/user/register';
+const String url = 'http://192.168.0.13:3003/api/user/register';
 
 Future<bool> register(String username, String email, String password) async {
 
