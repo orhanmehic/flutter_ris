@@ -5,6 +5,8 @@ import 'package:flutter_ris/chats/users_list.dart';
 import 'package:flutter_ris/firebase_options.dart';
 import 'package:flutter_ris/home/home_page.dart';
 import 'package:flutter_ris/home/new_post.dart';
+import 'package:flutter_ris/search/about_me.dart';
+import 'package:flutter_ris/search/search.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -33,6 +35,9 @@ class MyApp extends StatelessWidget {
         '/register': (context) => RegisterPage(),
         '/newPost': (context) => NewPost(),
         '/chats': (context) => UserListPage(),
+        '/search': (context) => SearchPage(),
+        '/about': (context) => AboutPage(userId: 0)
+      
       },
     );
   }

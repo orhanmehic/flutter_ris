@@ -55,10 +55,10 @@ class _RegisterPageState extends State<RegisterPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'logonn.png', // Replace with your image path
+              'assets/logonn.png', // Replace with your image path
               height: 300,
               width: 300,
-              color: Colors.transparent,
+              //color: Colors.transparent,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
